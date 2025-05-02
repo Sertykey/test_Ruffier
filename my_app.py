@@ -1,3 +1,5 @@
+
+# напиши здесь код основного приложения и первого экрана
 from PyQt5.QtCore import Qt
 from instr import *
 from second_win import *
