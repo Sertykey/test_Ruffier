@@ -1,3 +1,4 @@
+# напиши здесь код основного приложения и первого экрана
 
 # напиши здесь код основного приложения и первого экрана
 from PyQt5.QtCore import Qt
@@ -22,24 +23,26 @@ class MainWin(QWidget):
         self.setWindowTitle(txt_title)
         self.move(win_x, win_y)
         self.resize(win_width, win_height)
-    def initUI(self): 
+        self.setStyleSheet("background:rgb(245, 12, 160)")
+    def iniUI(self): 
         self.button = QPushButton(txt_next)
+        self.button.setStyleSheet("border: 5px solid rgb(133, 85, 230); background:rgb(136, 112, 184); font-size: 30px")
         self.hello = QLabel(txt_hello)
         self.instruction = QLabel(txt_instruction)
         self.v_line = QVBoxLayout()
-        v_line.addWidget(self.hello, alignment = Qt.AlignCenter)
-        v_line.addWidget(self.instruction, alignment = Qt.AlignCenter)
-        v_line.addWidget(self.button, alignment = Qt.AlignCenter)
-        self.setLayout(v_line)
+        self.setLayout(self.v_line)
+        self.v_line.addWidget(self.hello, alignment = Qt.AlignCenter)
+        self.v_line.addWidget(self.instruction, alignment = Qt.AlignCenter)
+        self.v_line.addWidget(self.button, alignment = Qt.AlignCenter)
+        
     def connects(self):
         self.button.clicked.connect(self.next_click)
     def next_click(self):
         self.hide()
         self.tw = TestWin()
-    def next_click(self):
-        self.hide()
-        self.exp = Experiment(self.line_age.text(), self.line_test1.text(), self.line_test2.text(), self.line_test3.text())
-        self.tw = FinalWin(self.exp)
-
+    
+app =QApplication([])
+winpup = MainWin()
+app.exec_()
 
         
