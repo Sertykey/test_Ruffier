@@ -1,30 +1,10 @@
-
-from instr import *
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QFont
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QLineEdit, QHBoxLayout,QVBoxLayout
-class TestWin(QWidget):
-    def __init__(self):
-        super().__init__()
-        self.set_appear()
-        self.initUI()
-        self.connects()
-        self.show()
-    def set_appear(self):
-        self.setWindowTitle(txt_finalwin)
-        self.resize(win_width, win_height)
-        self.move(win_x, win_y)
-    def connects(self):
-        pass
-
-    def initUI(self):
-        self.text_index = QLabel(txt_index)
-        self.txt_workheart = QLabel(txt_workheart)
-        self.c_line = QVBoxLayout()
-        self.c_line.addWidget(self.txt_index,alignment=Qt.AlignCenter)
-        self.c_line.addWidget(self.txt_workheart,alignment=Qt.AlignCenter)
-        self.work_text = QLabel(txt_workheart + self.results)
-        self.index_text = QLabel(txt_index + str(self.index))
+from instr import *
+from second_win import *
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QHBoxLayout, QVBoxLayout, QPushButton
+class FinalWin(QWidget):
+    def __init__(self,exp):
+        self.exp = exp
     def results(self):
         self.index = (4*(int(self.exp.t1)+int(self.exp.t2)+int(self.exp.t3))-200)/10
         if self.exp.age>=15:
@@ -38,6 +18,54 @@ class TestWin(QWidget):
                 return txt_res4
             elif self.index<=0.4:
                 return txt_res5
+        if 13<=self.exp.age<=14:
+            if self.index>=16.5:
+                return txt_res1
+            elif 12.5<=self.index<16.4:
+                return txt_res2
+            elif 7.5<=self.index<12.4:
+                return txt_res3
+            elif 2<=self.index<7.4:
+                return txt_res4
+            elif self.index<=1.9:
+                return txt_res5
+        if 11<=self.exp.age<=12:
+            if self.index>=18:
+                return txt_res1
+            elif 14<=self.index<17.9:
+                return txt_res2
+            elif 9<=self.index<13.9:
+                return txt_res3
+            elif 3.5<=self.index<8.9:
+                return txt_res4
+            elif self.index<=3.4:
+                return txt_res5
+        if 9<=self.exp.age<=10:
+            if self.index>=19.5:
+                return txt_res1
+            elif 15.5<=self.index<19.4:
+                return txt_res2
+            elif 10.5<=self.index<15.4:
+                return txt_res3
+            elif 5<=self.index<10.4:
+                return txt_res4
+            elif self.index<=4.9:
+                return txt_res5
+        if 7<=self.exp.age<=8:
+            if self.index>=21:
+                return txt_res1
+            elif 17<=self.index<20.9:
+                return txt_res2
+            elif 12<=self.index<16.9:
+                return txt_res3
+            elif 6.5<=self.index<11.9:
+                return txt_res4
+            elif self.index<=6.4:
+                return txt_res5    
+    def initUI(self):
+        self.work_text = QLabel(txt_workheart + self.results)
+        self.index_text = QLabel(txt_index + str(self.index))
+        
         
 
 # from PyQt5.QtCore import Qt
