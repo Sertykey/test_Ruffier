@@ -16,7 +16,10 @@ class TestWin(QWidget):
         self.move(win_x, win_y)
         self.setStyleSheet('background:rgb(245,12,160)')
     def connects(self):
-        pass
+        self.btn_test1.clicked.connect(self.timer_test)
+        # self.btn_test1.clicked.connect(self.timer_test)
+        self.btn_test2.clicked.connect(self.timer_sits)
+        self.btn_test3.clicked.connect(self.timer_final)
     def timer_test(self):
         global time
         time = QTime(0,1,0)
