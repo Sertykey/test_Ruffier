@@ -14,6 +14,7 @@ class TestWin(QWidget):
         self.setWindowTitle(txt_title)
         self.resize(win_width, win_height)
         self.move(win_x, win_y)
+        self.setStyleSheet('background:rgb(245,12,160)')
     def connects(self):
         pass
     def timer_test(self):
@@ -37,15 +38,19 @@ class TestWin(QWidget):
         self.btn_test1 = QPushButton(txt_starttest1, self)
         self.btn_test2 = QPushButton(txt_starttest2, self)
         self.btn_test3 = QPushButton(txt_starttest3, self)
-        self.text_name = QLabel(txt_name)
-        self.text_age = QLabel(txt_age)
+        self.btn_next.setStyleSheet('border: 5px solid rgb(133, 85, 230); background:rgb(136, 112, 184); font-size: 30px')
+        self.btn_test1.setStyleSheet('border: 5px solid rgb(133,85,230); background:rgb(136,112,184)')
+        self.btn_test2.setStyleSheet('border: 5px solid rgb(133,85,230); background:rgb(136,112,184)')
+        self.btn_test3.setStyleSheet('border: 5px solid rgb(133,85,230); background:rgb(136,112,184)')
+        self.text_name = QLabel(txt_hintname)
+        self.text_age = QLabel(txt_hintage)
         self.text_test1 = QLabel(txt_test1)
         self.text_test2 = QLabel(txt_test2)
         self.text_test3 = QLabel(txt_test3)
         self.text_timer = QLabel(txt_timer)
         self.text_timer.setFont(QFont("Times", 36, QFont.Bold))
-        self.line_name = QLineEdit(txt_hintname)
-        self.line_age = QLineEdit(txt_hintage)
+        self.line_name = QLineEdit(txt_name)
+        self.line_age = QLineEdit()
         self.line_test1 = QLineEdit(txt_hinttest1)
         self.line_test2 = QLineEdit(txt_hinttest2)
         self.line_test3 = QLineEdit(txt_hinttest3)
@@ -73,7 +78,6 @@ class TestWin(QWidget):
 
 
 
-app =QApplication([])
-Pup = TestWin()
-
-app.exec_()
+# app =QApplication([])
+# Pup = TestWin()
+# app.exec_()
