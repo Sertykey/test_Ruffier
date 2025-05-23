@@ -1,4 +1,3 @@
-
 from instr import *
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QFont
@@ -53,10 +52,15 @@ class TestWin(QWidget):
         self.text_timer = QLabel(txt_timer)
         self.text_timer.setFont(QFont("Times", 36, QFont.Bold))
         self.line_name = QLineEdit(txt_name)
+        self.line_name.setPlaceholderText(txt_name)
         self.line_age = QLineEdit()
-        self.line_test1 = QLineEdit(txt_hinttest1)
+        self.line_age.setPlaceholderText()
+        self.line_test1 = QLineEdit()
+        self.line_test1.setPlaceholderText(txt_hinttest1)
         self.line_test2 = QLineEdit(txt_hinttest2)
+        self.line_test2.setPlaceholderText(txt_hinttest2)
         self.line_test3 = QLineEdit(txt_hinttest3)
+        self.line_test3.setPlaceholderText(txt_hinttest3)
         self.l_line = QVBoxLayout()
         self.r_line = QVBoxLayout()
         self.h_line = QHBoxLayout()
@@ -78,6 +82,7 @@ class TestWin(QWidget):
         self.h_line.addLayout(self.l_line)
         self.h_line.addLayout(self.r_line)
         self.setLayout(self.h_line)
+
 
 
 
