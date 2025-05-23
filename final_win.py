@@ -4,7 +4,16 @@ from second_win import *
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QHBoxLayout, QVBoxLayout, QPushButton
 class FinalWin(QWidget):
     def __init__(self,exp):
+        super().__init__()
+        self.set_appear()
+        self.initUI()
+        self.show()
         self.exp = exp
+    def set_appear(self):
+        self.setWindowTitle(txt_title)
+        self.move(win_x, win_y)
+        self.resize(win_width, win_height)
+        self.setStyleSheet('background:rgb(245,12,160)')
     def results(self):
         self.index = (4*(int(self.exp.t1)+int(self.exp.t2)+int(self.exp.t3))-200)/10
         if self.exp.age>=15:
@@ -63,32 +72,17 @@ class FinalWin(QWidget):
             elif self.index<=6.4:
                 return txt_res5    
     def initUI(self):
-        self.work_text = QLabel(txt_workheart + self.results)
-        self.index_text = QLabel(txt_index + str(self.index))
-        
-        
-
-# from PyQt5.QtCore import Qt
-# from instr import *
-# from second_win import *
-# from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QHBoxLayout, QVBoxLayout, QPushButton
-# class FinalWin(QWidget):
-#     def __init__(self,exp):
-#         self.exp = exp
-#     def results(self):
-#         self.index = (4*(int(self.exp.t1)+int(self.exp.t2)+int(self.exp.t3))-200)/10
-#         if self.exp.age>=15:
-#             if self.index>=15:
-#                 return txt_res1
-#             elif 11<=self.index<15:
-#                 return txt_res2
-#             elif 6<=self.index<11:
-#                 return txt_res3
-#             elif 0.5<=self.index<6:
-#                 return txt_res4
-#             elif self.index<=0.4:
-#                 return txt_res5
-#     def initUI(self):
-#         self.work_text = QLabel(txt_workheart + self.results)
-#         self.index_text = QLabel(txt_index + str(self.index))
+        self.v_line = QVBoxLayout()
+        # self.work_text = QLabel(txt_workheart + self.results())
+        self.work_text = QLabel(txt_workheart + '9')
+        self.work_text.setStyleSheet('font-size: 30px')
+        # self.index_text = QLabel(txt_index + str(self.index))
+        self.index_text = QLabel(txt_index + '9')
+        self.index_text.setStyleSheet('font-size: 30px')
+        self.v_line.addWidget(self.work_text, alignment = Qt.AlignCenter)
+        self.v_line.addWidget(self.index_text, alignment = Qt.AlignCenter)
+        self.setLayout(self.v_line)
+app =QApplication([])
+winpup = FinalWin(9)
+app.exec_()
         
