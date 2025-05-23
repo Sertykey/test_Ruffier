@@ -1,6 +1,3 @@
-# напиши здесь код основного приложения и первого экрана
-
-# напиши здесь код основного приложения и первого экрана
 from PyQt5.QtCore import Qt
 from instr import *
 from second_win import *
@@ -26,9 +23,11 @@ class MainWin(QWidget):
         self.setStyleSheet("background:rgb(245, 12, 160)")
     def iniUI(self): 
         self.button = QPushButton(txt_next)
-        self.button.setStyleSheet("border: 5px solid rgb(133, 85, 230); background:rgb(136, 112, 184); font-size: 30px")
+        self.button.setStyleSheet("border: 5px solid rgb(133, 85, 230); background:rgb(136, 112, 184); font-size: 30px; padding: 10px; border-radius: 15px")
         self.hello = QLabel(txt_hello)
+        self.hello.setStyleSheet('font-size: 30px')
         self.instruction = QLabel(txt_instruction)
+        self.instruction.setStyleSheet('font-size: 15px')
         self.v_line = QVBoxLayout()
         self.setLayout(self.v_line)
         self.v_line.addWidget(self.hello, alignment = Qt.AlignCenter)
@@ -44,5 +43,3 @@ class MainWin(QWidget):
 app =QApplication([])
 winpup = MainWin()
 app.exec_()
-
-        
