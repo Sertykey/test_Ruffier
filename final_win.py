@@ -5,10 +5,10 @@ from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QHBoxLayout, QVBoxLay
 class FinalWin(QWidget):
     def __init__(self,exp):
         super().__init__()
+        self.exp = exp
         self.set_appear()
         self.initUI()
         self.show()
-        self.exp = exp
     def set_appear(self):
         self.setWindowTitle(txt_title)
         self.move(win_x, win_y)
@@ -73,16 +73,16 @@ class FinalWin(QWidget):
                 return txt_res5    
     def initUI(self):
         self.v_line = QVBoxLayout()
-        # self.work_text = QLabel(txt_workheart + self.results())
-        self.work_text = QLabel(txt_workheart + '9')
+        self.work_text = QLabel(txt_workheart + self.results())
+        # self.work_text = QLabel(txt_workheart + '9')
         self.work_text.setStyleSheet('font-size: 30px')
-        # self.index_text = QLabel(txt_index + str(self.index))
-        self.index_text = QLabel(txt_index + '9')
+        self.index_text = QLabel(txt_index + str(self.index))
+        # self.index_text = QLabel(txt_index + '9')
         self.index_text.setStyleSheet('font-size: 30px')
         self.v_line.addWidget(self.work_text, alignment = Qt.AlignCenter)
         self.v_line.addWidget(self.index_text, alignment = Qt.AlignCenter)
         self.setLayout(self.v_line)
-app =QApplication([])
-winpup = FinalWin(9)
-app.exec_()
+# app =QApplication([])
+# winpup = FinalWin(9)
+# app.exec_()
         
